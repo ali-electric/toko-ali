@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali Electric - Solusi & Layanan Kelistrikan Professional Sukabumi</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        electric: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8',
+                            500: '#0284c7',
+                            600: '#026597',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            dark: '#080E1E',
+                            card: '#111827',
+                            amber: '#F59E0B',
+                            amberLight: '#FEF3C7',
+                        }
+                    },
+                    boxShadow: {
+                        'solid-glow': '0 0 30px rgba(2, 132, 199, 0.2)',
+                        'amber-glow': '0 0 25px rgba(245, 158, 11, 0.25)',
+                        'kokoh shadow': '0 20px 25px -5px rgba(8, 14, 30, 0.12), 0 8px 10px -6px rgba(8, 14, 30, 0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+        .bg-grid-pattern {
+            background-image: radial-gradient(rgba(15, 23, 42, 0.08) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .bg-dark-grid {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+            background-size: 28px 28px;
+        }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.93);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+        /* Hide scrollbars for slick slider tabs */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* Custom smooth transition cards */
+        .card-solid-hover {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .card-solid-hover:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="antialiased text-slate-800 bg-slate-50 flex flex-col min-h-screen selection:bg-electric-500 selection:text-white">
+
+    <!-- Floating Logo & Branding Customizer Trigger -->
+    <div class="fixed bottom-24 left-5 z-40">
+        <button onclick="toggleLogoModal()" class="bg-electric-dark text-white p-3.5 rounded-full shadow-2xl hover:bg-slate-900 transition-all flex items-center gap-2.5 border border-electric-amber/40 group focus:outline-none">
+            <i class="fa-solid fa-palette text-electric-amber group-hover:rotate-45 transition-transform duration-300 text-lg"></i>
+            <span class="text-xs font-bold pr-1 hidden sm:inline tracking-wide">Kelola Logo & Branding</span>
+        </button>
+    </div>
+
+    <!-- 1. HEADER / NAVBAR -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-header border-b border-slate-200/80 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 transition-all duration-300" id="nav-container">
+                
+                <!-- Logo Display Area -->
+                <a href="#beranda" class="flex items-center gap-3.5 group focus:outline-none">
+                    <div class="logo-wrapper h-11 w-auto max-w-[210px] flex items-center justify-start overflow-hidden">
+                        <img id="site-logo" src="https://placehold.co/200x60/080e1e/f59e0b?text=ALI+ELECTRIC" alt="Logo Ali Electric" class="h-full w-auto object-contain transition-transform duration-300 group-hover:scale-105" onerror="this.onerror=null; this.src='https://placehold.co/200x60/080e1e/f59e0b?text=ALI+ELECTRIC';">
+                    </div>
+                    <div class="flex flex-col">
+                        <span id="brand-name-text" class="text-lg font-black tracking-tight text-electric-dark uppercase leading-tight">ALI ELECTRIC</span>
+                        <span class="text-[10px] text-electric-600 tracking-wider font-extrabold uppercase">Electrical & Industrial Specialist</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center space-x-1 xl:space-x-2">
+                    <a href="#beranda" class="px-3.5 py-2 text-sm font-bold text-slate-700 hover:text-electric-600 transition-colors rounded-xl hover:bg-slate-100">Beranda</a>
+                    <a href="#tentang" class="px-3.5 py-2 text-sm font-bold text-slate-700 hover:text-electric-600 transition-colors rounded-xl hover:bg-slate-100">Tentang Kami</a>
+                    <a href="#produk" class="px-3.5 py-2 text-sm font-bold text-slate-700 hover:text-electric-600 transition-colors rounded-xl hover:bg-slate-100">Produk & Layanan</a>
+                    <a href="#keunggulan" class="px-3.5 py-2 text-sm font-bold text-slate-700 hover:text-electric-600 transition-colors rounded-xl hover:bg-slate-100">Keunggulan</a>
+                    <a href="#galeri" class="px-3.5 py-2 text-sm font-bold text-slate-700 hover:text-electric-600 transition-colors rounded-xl hover:bg-slate-100">Galeri Proyek</a>
+                    <a href="#kontak" class="px-3.5 py-2 text-sm font-bold text-slate-700 hover:text-electric-600 transition-colors rounded-xl hover:bg-slate-100">Kontak</a>
+                </nav>
+
+                <!-- Header CTA Button -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <a href="https://wa.me/6283898962935?text=Halo%20Ali%20Electric,%20saya%20ingin%20berkonsultasi%20mengenai%20layanan%20kelistrikan" target="_blank" class="bg-electric-dark hover:bg-slate-900 text-white font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 border border-slate-700 flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-base text-electric-amber"></i>
+                        <span>Hubungi Kami</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="p-2.5 rounded-xl text-slate-800 hover:bg-slate-100 focus:outline-none border border-slate-200" aria-label="Buka Menu">
+                        <i id="menu-icon" class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden border-b border-slate-200 bg-white/98 backdrop-blur-lg px-4 pt-3 pb-6 space-y-2 transition-all">
+            <a href="#beranda" onclick="toggleMobileMenu()" class="block px-4 py-3 text-base font-bold text-slate-800 hover:bg-slate-100 rounded-xl">Beranda</a>
+            <a href="#tentang" onclick="toggleMobileMenu()" class="block px-4 py-3 text-base font-bold text-slate-800 hover:bg-slate-100 rounded-xl">Tentang Kami</a>
+            <a href="#produk" onclick="toggleMobileMenu()" class="block px-4 py-3 text-base font-bold text-slate-800 hover:bg-slate-100 rounded-xl">Produk & Layanan</a>
+            <a href="#keunggulan" onclick="toggleMobileMenu()" class="block px-4 py-3 text-base font-bold text-slate-800 hover:bg-slate-100 rounded-xl">Keunggulan</a>
+            <a href="#galeri" onclick="toggleMobileMenu()" class="block px-4 py-3 text-base font-bold text-slate-800 hover:bg-slate-100 rounded-xl">Galeri Proyek</a>
+            <a href="#kontak" onclick="toggleMobileMenu()" class="block px-4 py-3 text-base font-bold text-slate-800 hover:bg-slate-100 rounded-xl">Kontak</a>
+            <div class="pt-3">
+                <a href="https://wa.me/6283898962935?text=Halo%20Ali%20Electric,%20saya%20ingin%20berkonsultasi" target="_blank" onclick="toggleMobileMenu()" class="w-full bg-electric-dark text-white font-bold text-center block py-3.5 rounded-xl shadow-md flex items-center justify-center gap-2 text-sm">
+                    <i class="fa-brands fa-whatsapp text-electric-amber text-lg"></i>
+                    <span>Hubungi via WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-20">
+
+        <!-- 2. HERO SECTION -->
+        <section id="beranda" class="relative bg-gradient-to-b from-electric-dark via-slate-900 to-electric-dark text-white overflow-hidden py-20 lg:py-28 bg-dark-grid">
+            <!-- Subtle Lighting Accent Glows -->
+            <div class="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-electric-500/15 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-10 right-10 w-[400px] h-[400px] bg-electric-amber/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Hero Content Left -->
+                    <div class="lg:col-span-7 space-y-7 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-electric-amber text-xs font-extrabold tracking-wider uppercase">
+                            <i class="fa-solid fa-bolt text-electric-amber"></i>
+                            <span>Spesialis Kelistrikan & Instalasi Industri Sukabumi</span>
+                        </div>
+
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.15] text-white">
+                            Solusi Kelistrikan <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-electric-400 to-amber-400">Kokoh, Aman, & Terpercaya</span>
+                        </h1>
+
+                        <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                            Layanan instalasi listrik, perakitan panel distribusi, pengadaan material elektrik berkualitas tinggi, serta perawatan sistem kelistrikan untuk komersial, industri, dan hunian.
+                        </p>
+
+                        <!-- Action Buttons -->
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                            <a href="https://wa.me/6283898962935?text=Halo%20Ali%20Electric,%20saya%20butuh%20konsultasi%20instalasi/perbaikan%20listrik" target="_blank" class="w-full sm:w-auto bg-gradient-to-r from-electric-500 to-electric-700 hover:from-electric-600 hover:to-electric-800 text-white font-extrabold px-8 py-4 rounded-xl shadow-solid-glow hover:shadow-2xl transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-3">
+                                <i class="fa-brands fa-whatsapp text-xl text-electric-amber"></i>
+                                <span>Konsultasi Listrik Gratis</span>
+                            </a>
+                            <a href="#produk" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white font-bold px-7 py-4 rounded-xl border border-white/20 backdrop-blur-md transition-all flex items-center justify-center gap-2.5">
+                                <i class="fa-solid fa-list-check text-slate-300"></i>
+                                <span>Lihat Layanan Kami</span>
+                            </a>
+                        </div>
+
+                        <!-- Mini Highlights Grid -->
+                        <div class="pt-8 border-t border-slate-800/80 grid grid-cols-3 gap-4 text-left">
+                            <div class="p-2">
+                                <p class="text-2xl sm:text-3xl font-black text-white">100%</p>
+                                <p class="text-xs text-slate-400 font-semibold uppercase tracking-wider mt-1">Standar Keamanan SNI</p>
+                            </div>
+                            <div class="p-2 border-l border-slate-800">
+                                <p class="text-2xl sm:text-3xl font-black text-white">500+</p>
+                                <p class="text-xs text-slate-400 font-semibold uppercase tracking-wider mt-1">Proyek Terpasang</p>
+                            </div>
+                            <div class="p-2 border-l border-slate-800">
+                                <p class="text-2xl sm:text-3xl font-black text-electric-amber">24/7</p>
+                                <p class="text-xs text-slate-400 font-semibold uppercase tracking-wider mt-1">Layanan Respon Cepat</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hero Visual Right -->
+                    <div class="lg:col-span-5">
+                        <div class="relative mx-auto max-w-md lg:max-w-none">
+                            <div class="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-white/15 bg-slate-900 group">
+                                <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1000&auto=format&fit=crop" alt="Instalasi Listrik Industri Ali Electric" class="w-full h-[440px] object-cover group-hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                                
+                                <div class="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-slate-900/90 backdrop-blur-md border border-white/15 text-white shadow-2xl flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-xl bg-electric-amber/20 border border-electric-amber/40 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-shield-halved text-2xl text-electric-amber"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-extrabold text-sm">Jaminan Garansi & Sertifikasi</h4>
+                                        <p class="text-xs text-slate-300 mt-0.5">Pengerjaan disiplin presisi tinggi & bergaransi purna jual.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. TENTANG KAMI -->
+        <section id="tentang" class="py-20 lg:py-28 bg-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Left Image Grid -->
+                    <div class="lg:col-span-6 space-y-4">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?q=80&w=800&auto=format&fit=crop" alt="Teknisi Ali Electric Bekerja" class="rounded-2xl shadow-kokoh shadow w-full h-[380px] object-cover border border-slate-200">
+                            <div class="absolute -bottom-6 -right-6 hidden sm:flex bg-electric-dark text-white p-6 rounded-2xl shadow-2xl border border-slate-700 max-w-xs flex-col">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <i class="fa-solid fa-certificate text-electric-amber text-2xl"></i>
+                                    <span class="font-bold text-sm tracking-wide">Teknisi Berpengalaman</span>
+                                </div>
+                                <p class="text-xs text-slate-300 leading-relaxed">Berstandar keselamatan kerja penuh dengan penanganan alat ukur kalibrasi terkini.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Description -->
+                    <div class="lg:col-span-6 space-y-6">
+                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-electric-50 text-electric-700 text-xs font-bold uppercase tracking-wider">
+                            Profil Perusahaan
+                        </div>
+
+                        <h2 class="text-3xl sm:text-4xl font-black text-electric-dark tracking-tight leading-tight">
+                            Ali Electric — Solusi Terpadu Kelistrikan Berstandar Tinggi
+                        </h2>
+
+                        <p class="text-slate-600 leading-relaxed text-base">
+                            Berlokasi strategis di Cikembar, Kabupaten Sukabumi, **Ali Electric** hadir memberikan kepastian keamanan dan keandalan daya listrik Anda. Kami menangani segala cakupan pekerjaan kelistrikan mulai dari instalasi rumah tangga, perakitan panel kontrol industri, penataan grounding, hingga audit kelaikan teknis.
+                        </p>
+
+                        <!-- Key Pillars Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-3">
+                                <div class="p-2.5 bg-electric-500/10 rounded-lg text-electric-600 shrink-0">
+                                    <i class="fa-solid fa-plug-circle-check text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-extrabold text-slate-900 text-sm">Sesuai Standar PUIL & SNI</h3>
+                                    <p class="text-xs text-slate-500 mt-1">Seluruh pengerjaan taat pada Regulasi Kelistrikan Nasional.</p>
+                                </div>
+                            </div>
+                            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-3">
+                                <div class="p-2.5 bg-electric-500/10 rounded-lg text-electric-600 shrink-0">
+                                    <i class="fa-solid fa-screwdriver-wrench text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-extrabold text-slate-900 text-sm">Peralatan Mutakhir</h3>
+                                    <p class="text-xs text-slate-500 mt-1">Menggunakan instrumen diagnosis modern yang presisi.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Statistics Counter Bar -->
+                        <div class="pt-4 grid grid-cols-3 gap-4 border-t border-slate-200 text-center sm:text-left">
+                            <div>
+                                <span class="text-3xl font-black text-electric-dark block">100%</span>
+                                <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wide">Pencegahan Korsleting</span>
+                            </div>
+                            <div>
+                                <span class="text-3xl font-black text-electric-dark block">500+</span>
+                                <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wide">Klien Puas</span>
+                            </div>
+                            <div>
+                                <span class="text-3xl font-black text-electric-dark block">Sukabumi</span>
+                                <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wide">Cakupan Area Area</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. PRODUK / LAYANAN -->
+        <section id="produk" class="py-20 lg:py-28 bg-slate-100/80 border-y border-slate-200 relative bg-grid-pattern">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-electric-50 text-electric-700 text-xs font-extrabold uppercase tracking-wider">
+                        Katalog Produk & Layanan
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-black text-electric-dark tracking-tight">
+                        Layanan Kelistrikan Komprehensif
+                    </h2>
+                    <p class="text-slate-600 text-base">
+                        Temukan berbagai solusi pengerjaan listrik, rakitan panel, serta komponen kelistrikan original berkualitas tinggi.
+                    </p>
+                </div>
+
+                <!-- Filter & Search Controls -->
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-10 bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
+                    <!-- Category Tabs -->
+                    <div class="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 no-scrollbar" id="product-filter-tabs">
+                        <button onclick="filterProducts('all')" class="filter-btn active px-4 py-2.5 rounded-xl text-xs font-extrabold transition-all whitespace-nowrap bg-electric-dark text-white shadow-sm" data-category="all">Semua Layanan</button>
+                        <button onclick="filterProducts('instalasi')" class="filter-btn px-4 py-2.5 rounded-xl text-xs font-extrabold transition-all whitespace-nowrap bg-slate-100 text-slate-600 hover:bg-slate-200" data-category="instalasi">Instalasi & Kabel</button>
+                        <button onclick="filterProducts('panel')" class="filter-btn px-4 py-2.5 rounded-xl text-xs font-extrabold transition-all whitespace-nowrap bg-slate-100 text-slate-600 hover:bg-slate-200" data-category="panel">Panel & Distribusi</button>
+                        <button onclick="filterProducts('maintenance')" class="filter-btn px-4 py-2.5 rounded-xl text-xs font-extrabold transition-all whitespace-nowrap bg-slate-100 text-slate-600 hover:bg-slate-200" data-category="maintenance">Perbaikan & Audit</button>
+                    </div>
+
+                    <!-- Search Input -->
+                    <div class="relative w-full md:w-72 shrink-0">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                        <input type="text" id="product-search" onkeyup="searchProducts()" placeholder="Cari layanan atau komponen..." class="w-full pl-10 pr-4 py-2.5 text-xs bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-electric-500 focus:bg-white transition-all">
+                    </div>
+                </div>
+
+                <!-- Product Grid -->
+                <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Card 1 -->
+                    <div class="product-card card-solid-hover bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col" data-category="instalasi" data-title="Instalasi Listrik Gedung & Industri">
+                        <div class="relative h-52 overflow-hidden bg-slate-900">
+                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop" alt="Instalasi Listrik Gedung" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 bg-electric-dark/90 backdrop-blur-md text-electric-amber text-[11px] font-extrabold px-3 py-1 rounded-full border border-white/20">Instalasi</span>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                            <div>
+                                <h3 class="text-lg font-extrabold text-electric-dark hover:text-electric-600 transition-colors">Instalasi Listrik Gedung & Industri</h3>
+                                <p class="text-slate-600 text-xs mt-2 leading-relaxed">Pemasangan jaringan kelistrikan baru, instalasi stop kontak, sakelar, penerangan, dan grounding tahan korsleting.</p>
+                            </div>
+                            <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                                <span class="text-xs font-extrabold text-slate-500">Komersial & Residensial</span>
+                                <button onclick="openProductModal('Instalasi Listrik Gedung & Industri', 'Pemasangan kabel listrik berstandar SNI, penataan daya optimal, instalasi pemutus arus (MCB/MCCB) presisi, dan pengujian beban aman untuk pabrik, ruko, maupun rumah.')" class="bg-slate-100 hover:bg-electric-dark hover:text-white text-slate-800 text-xs font-bold px-4 py-2 rounded-xl transition-all flex items-center gap-1.5">
+                                    <span>Detail</span>
+                                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="product-card card-solid-hover bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col" data-category="panel" data-title="Perakitan Panel LVMDP & ATS-AMF">
+                        <div class="relative h-52 overflow-hidden bg-slate-900">
+                            <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?q=80&w=800&auto=format&fit=crop" alt="Perakitan Panel Listrik" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 bg-electric-dark/90 backdrop-blur-md text-electric-amber text-[11px] font-extrabold px-3 py-1 rounded-full border border-white/20">Panel Distribusi</span>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                            <div>
+                                <h3 class="text-lg font-extrabold text-electric-dark hover:text-electric-600 transition-colors">Perakitan Panel LVMDP & ATS-AMF</h3>
+                                <p class="text-slate-600 text-xs mt-2 leading-relaxed">Perancangan dan pembuatan box panel distribusi utama, genset automatic transfer switch (ATS) secara presisi.</p>
+                            </div>
+                            <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                                <span class="text-xs font-extrabold text-slate-500">Custom Panel Spesifikasi</span>
+                                <button onclick="openProductModal('Perakitan Panel LVMDP & ATS-AMF', 'Pembuatan boks panel kelistrikan kustom, lengkap dengan pengaman busbar, indikator Volt/Ampere digital, breaker Schneider/ABB, dan kalibrasi sistem otomatisasi genset.')" class="bg-slate-100 hover:bg-electric-dark hover:text-white text-slate-800 text-xs font-bold px-4 py-2 rounded-xl transition-all flex items-center gap-1.5">
+                                    <span>Detail</span>
+                                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="product-card card-solid-hover bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col" data-category="maintenance" data-title="Audit Kelistrikan & Perbaikan Darurat">
+                        <div class="relative h-52 overflow-hidden bg-slate-900">
+                            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800&auto=format&fit=crop" alt="Audit dan Perbaikan Listrik" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 bg-electric-dark/90 backdrop-blur-md text-electric-amber text-[11px] font-extrabold px-3 py-1 rounded-full border border-white/20">Maintenance</span>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                            <div>
+                                <h3 class="text-lg font-extrabold text-electric-dark hover:text-electric-600 transition-colors">Audit Kelistrikan & Perbaikan Darurat</h3>
+                                <p class="text-slate-600 text-xs mt-2 leading-relaxed">Pemeriksaan potensi korsleting, perbaikan kabel terbakar, penyeimbangan beban fase 3-phase, & trouble shoot 24/7.</p>
+                            </div>
+                            <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                                <span class="text-xs font-extrabold text-slate-500">Respon Cepat</span>
+                                <button onclick="openProductModal('Audit Kelistrikan & Perbaikan Darurat', 'Inspeksi berkala hambatan isolasi kabel (megger test), pengecekan beban kawat tembaga, perbaikan korsleting mendadak, serta rekonfigurasi sekering terbakar.')" class="bg-slate-100 hover:bg-electric-dark hover:text-white text-slate-800 text-xs font-bold px-4 py-2 rounded-xl transition-all flex items-center gap-1.5">
+                                    <span>Detail</span>
+                                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="product-card card-solid-hover bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col" data-category="instalasi" data-title="Sistem Penangkal Petir & Grounding System">
+                        <div class="relative h-52 overflow-hidden bg-slate-900">
+                            <img src="https://images.unsplash.com/photo-1513828742140-ccaa28f3eda0?q=80&w=800&auto=format&fit=crop" alt="Penangkal Petir & Grounding" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 bg-electric-dark/90 backdrop-blur-md text-electric-amber text-[11px] font-extrabold px-3 py-1 rounded-full border border-white/20">Protection</span>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                            <div>
+                                <h3 class="text-lg font-extrabold text-electric-dark hover:text-electric-600 transition-colors">Penangkal Petir & Grounding System</h3>
+                                <p class="text-slate-600 text-xs mt-2 leading-relaxed">Pemasangan penangkal petir elektrostatis / konvensional serta pembuatan sumur pembumian tanah (di bawah 5 Ohm).</p>
+                            </div>
+                            <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                                <span class="text-xs font-extrabold text-slate-500">Proteksi Gedung</span>
+                                <button onclick="openProductModal('Penangkal Petir & Grounding System', 'Perancangan proteksi sambaran petir luar dan dalam (Surge Arrester), pemasangan tombak tembaga murni, dan pengukuran nilai grounding presisi.')" class="bg-slate-100 hover:bg-electric-dark hover:text-white text-slate-800 text-xs font-bold px-4 py-2 rounded-xl transition-all flex items-center gap-1.5">
+                                    <span>Detail</span>
+                                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="product-card card-solid-hover bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col" data-category="panel" data-title="Pengadaan Material & Komponen Elektrik">
+                        <div class="relative h-52 overflow-hidden bg-slate-900">
+                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop" alt="Komponen Material Listrik" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 bg-electric-dark/90 backdrop-blur-md text-electric-amber text-[11px] font-extrabold px-3 py-1 rounded-full border border-white/20">Supply Material</span>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                            <div>
+                                <h3 class="text-lg font-extrabold text-electric-dark hover:text-electric-600 transition-colors">Pengadaan Material & Komponen Elektrik</h3>
+                                <p class="text-slate-600 text-xs mt-2 leading-relaxed">Penyediaan kabel NYA/NYM/NYY Supreme/Metal, MCB, Contractor, Inverter, dan aksesoris kelistrikan bergaransi resmi.</p>
+                            </div>
+                            <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                                <span class="text-xs font-extrabold text-slate-500">Part Original</span>
+                                <button onclick="openProductModal('Pengadaan Material & Komponen Elektrik', 'Suplai komponen kelistrikan original berkualitas SNI dari merk-merk terkemuka seperti Schneider, Legrand, Supreme, Kabelmetal, Philips, dan Chint.')" class="bg-slate-100 hover:bg-electric-dark hover:text-white text-slate-800 text-xs font-bold px-4 py-2 rounded-xl transition-all flex items-center gap-1.5">
+                                    <span>Detail</span>
+                                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="product-card card-solid-hover bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col" data-category="maintenance" data-title="Pemasangan Lampu Industri & PJU">
+                        <div class="relative h-52 overflow-hidden bg-slate-900">
+                            <img src="https://images.unsplash.com/photo-1508873696983-2df515122519?q=80&w=800&auto=format&fit=crop" alt="Lampu Penerangan Jalan Umum PJU" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 bg-electric-dark/90 backdrop-blur-md text-electric-amber text-[11px] font-extrabold px-3 py-1 rounded-full border border-white/20">Penerangan</span>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                            <div>
+                                <h3 class="text-lg font-extrabold text-electric-dark hover:text-electric-600 transition-colors">Pemasangan Lampu Industri & PJU</h3>
+                                <p class="text-slate-600 text-xs mt-2 leading-relaxed">Instalasi lampu Highbay pabrik, penerangan jalan umum (PJU), floodlight sorot, & sistem pencahayaan otomatis timer/sensor.</p>
+                            </div>
+                            <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                                <span class="text-xs font-extrabold text-slate-500">Efisiensi Energi</span>
+                                <button onclick="openProductModal('Pemasangan Lampu Industri & PJU', 'Solusi penerangan hemat energi menggunakan teknologi LED High-Bay, instalasi tiang PJU, pengerjaan titik lampu area terbuka, dan sensor otomatis fotocell.')" class="bg-slate-100 hover:bg-electric-dark hover:text-white text-slate-800 text-xs font-bold px-4 py-2 rounded-xl transition-all flex items-center gap-1.5">
+                                    <span>Detail</span>
+                                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 5. KEUNGGULAN -->
+        <section id="keunggulan" class="py-20 lg:py-28 bg-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-amber-50 text-amber-700 text-xs font-extrabold uppercase tracking-wider">
+                        Mengapa Memilih Ali Electric
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-black text-electric-dark tracking-tight">
+                        Keunggulan Pilihan Utama Pelanggan
+                    </h2>
+                    <p class="text-slate-600 text-base">
+                        Komitmen dedikasi penuh pada aspek keamanan kelistrikan, ketepatan waktu, serta transparansi biaya.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Advantage 1 -->
+                    <div class="p-8 rounded-2xl bg-slate-50 border border-slate-200 hover:border-electric-500/40 shadow-sm hover:shadow-kokoh transition-all duration-300 group">
+                        <div class="w-14 h-14 rounded-2xl bg-electric-dark text-electric-amber flex items-center justify-center text-2xl mb-6 shadow-md group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-shield-check"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-slate-900 mb-3">Kualitas Terjamin (SNI)</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed">Penggunaan material bersertifikasi resmi dan pengerjaan berpedoman ketat pada standar PUIL terbaru.</p>
+                    </div>
+
+                    <!-- Advantage 2 -->
+                    <div class="p-8 rounded-2xl bg-slate-50 border border-slate-200 hover:border-electric-500/40 shadow-sm hover:shadow-kokoh transition-all duration-300 group">
+                        <div class="w-14 h-14 rounded-2xl bg-electric-dark text-electric-amber flex items-center justify-center text-2xl mb-6 shadow-md group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-tags"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-slate-900 mb-3">Harga Transparan & Kompetitif</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed">Rincian estimasi biaya terbuka tanpa ada biaya siluman. Solusi paling hemat untuk investasi jangka panjang.</p>
+                    </div>
+
+                    <!-- Advantage 3 -->
+                    <div class="p-8 rounded-2xl bg-slate-50 border border-slate-200 hover:border-electric-500/40 shadow-sm hover:shadow-kokoh transition-all duration-300 group">
+                        <div class="w-14 h-14 rounded-2xl bg-electric-dark text-electric-amber flex items-center justify-center text-2xl mb-6 shadow-md group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-user-gear"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-slate-900 mb-3">Teknisi Profesional</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed">Tim praktisi kelistrikan yang menguasai analisis beban, wiring diagram rumit, dan trouble-shooting tepat sasaran.</p>
+                    </div>
+
+                    <!-- Advantage 4 -->
+                    <div class="p-8 rounded-2xl bg-slate-50 border border-slate-200 hover:border-electric-500/40 shadow-sm hover:shadow-kokoh transition-all duration-300 group">
+                        <div class="w-14 h-14 rounded-2xl bg-electric-dark text-electric-amber flex items-center justify-center text-2xl mb-6 shadow-md group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-slate-900 mb-3">Respon Cepat & Tanggap</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed">Tim kami sigap merespons panggilan darurat kendala listrik Anda di area Sukabumi dan sekitarnya.</p>
+                    </div>
+
+                    <!-- Advantage 5 -->
+                    <div class="p-8 rounded-2xl bg-slate-50 border border-slate-200 hover:border-electric-500/40 shadow-sm hover:shadow-kokoh transition-all duration-300 group">
+                        <div class="w-14 h-14 rounded-2xl bg-electric-dark text-electric-amber flex items-center justify-center text-2xl mb-6 shadow-md group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-slate-900 mb-3">Pengalaman Teruji</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed">Telah menangani ratusan proyek instalasi pabrik, gudang, ruko komersial, hingga pemukiman perumahan.</p>
+                    </div>
+
+                    <!-- Advantage 6 -->
+                    <div class="p-8 rounded-2xl bg-slate-50 border border-slate-200 hover:border-electric-500/40 shadow-sm hover:shadow-kokoh transition-all duration-300 group">
+                        <div class="w-14 h-14 rounded-2xl bg-electric-dark text-electric-amber flex items-center justify-center text-2xl mb-6 shadow-md group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-square-check"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-slate-900 mb-3">Garansi Purna Jual</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed">Memberikan jaminan garansi pengerjaan untuk memberikan rasa tenang dan perlindungan investasi Anda.</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 6. GALERI / PORTOFOLIO -->
+        <section id="galeri" class="py-20 lg:py-28 bg-electric-dark text-white relative bg-dark-grid border-t border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-white/10 text-electric-amber text-xs font-extrabold uppercase tracking-wider">
+                        Dokumentasi Proyek
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-white">
+                        Galeri Portofolio Pekerjaan Lapangan
+                    </h2>
+                    <p class="text-slate-400 text-base">
+                        Dokumentasi visual pengerjaan kelistrikan, rakitan boks panel, dan perbaikan di lapangan.
+                    </p>
+                </div>
+
+                <!-- Gallery Category Filter Buttons -->
+                <div class="flex items-center justify-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar" id="gallery-filter-container">
+                    <button onclick="filterGallery('all')" class="gallery-filter-btn active px-5 py-2.5 rounded-xl text-xs font-extrabold transition-all bg-electric-500 text-white" data-gallery-cat="all">Semua Foto</button>
+                    <button onclick="filterGallery('instalasi')" class="gallery-filter-btn px-5 py-2.5 rounded-xl text-xs font-extrabold transition-all bg-white/10 text-slate-300 hover:bg-white/20" data-gallery-cat="instalasi">Instalasi Kabel</button>
+                    <button onclick="filterGallery('panel')" class="gallery-filter-btn px-5 py-2.5 rounded-xl text-xs font-extrabold transition-all bg-white/10 text-slate-300 hover:bg-white/20" data-gallery-cat="panel">Panel & Breaker</button>
+                    <button onclick="filterGallery('penerangan')" class="gallery-filter-btn px-5 py-2.5 rounded-xl text-xs font-extrabold transition-all bg-white/10 text-slate-300 hover:bg-white/20" data-gallery-cat="penerangan">Lampu & PJU</button>
+                </div>
+
+                <!-- Gallery Grid -->
+                <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Item 1 -->
+                    <div class="gallery-item group relative h-64 rounded-2xl overflow-hidden cursor-pointer border border-white/10 shadow-xl" data-gallery-cat="panel" onclick="openLightbox('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1200&auto=format&fit=crop', 'Perakitan & Wiring Panel Distribusi Utama LVMDP')">
+                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=600&auto=format&fit=crop" alt="Perakitan Panel LVMDP" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+                        <div class="absolute bottom-4 left-4 right-4 p-2">
+                            <span class="text-[10px] font-extrabold text-electric-amber uppercase tracking-wider">Panel & Breaker</span>
+                            <h3 class="text-sm font-extrabold text-white mt-0.5">Perakitan & Wiring Panel LVMDP</h3>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="gallery-item group relative h-64 rounded-2xl overflow-hidden cursor-pointer border border-white/10 shadow-xl" data-gallery-cat="instalasi" onclick="openLightbox('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop', 'Penataan Jalur Kabel Tray Industri')">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=600&auto=format&fit=crop" alt="Kabel Tray Listrik" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+                        <div class="absolute bottom-4 left-4 right-4 p-2">
+                            <span class="text-[10px] font-extrabold text-electric-amber uppercase tracking-wider">Instalasi Kabel</span>
+                            <h3 class="text-sm font-extrabold text-white mt-0.5">Penataan Jalur Kabel Tray Industri</h3>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="gallery-item group relative h-64 rounded-2xl overflow-hidden cursor-pointer border border-white/10 shadow-xl" data-gallery-cat="penerangan" onclick="openLightbox('https://images.unsplash.com/photo-1508873696983-2df515122519?q=80&w=1200&auto=format&fit=crop', 'Instalasi Highbay LED Pabrik & Gudang')">
+                        <img src="https://images.unsplash.com/photo-1508873696983-2df515122519?q=80&w=600&auto=format&fit=crop" alt="Lampu Highbay Industri" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+                        <div class="absolute bottom-4 left-4 right-4 p-2">
+                            <span class="text-[10px] font-extrabold text-electric-amber uppercase tracking-wider">Lampu & PJU</span>
+                            <h3 class="text-sm font-extrabold text-white mt-0.5">Pemasangan Highbay LED Pabrik</h3>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="gallery-item group relative h-64 rounded-2xl overflow-hidden cursor-pointer border border-white/10 shadow-xl" data-gallery-cat="panel" onclick="openLightbox('https://images.unsplash.com/photo-1581092335397-9583fe92d232?q=80&w=1200&auto=format&fit=crop', 'Pengujian Voltase & Sistem Otomasi ATS Genset')">
+                        <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?q=80&w=600&auto=format&fit=crop" alt="Pengujian ATS Genset" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+                        <div class="absolute bottom-4 left-4 right-4 p-2">
+                            <span class="text-[10px] font-extrabold text-electric-amber uppercase tracking-wider">Panel & Breaker</span>
+                            <h3 class="text-sm font-extrabold text-white mt-0.5">Sistem Otomasi ATS-AMF Genset</h3>
+                        </div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="gallery-item group relative h-64 rounded-2xl overflow-hidden cursor-pointer border border-white/10 shadow-xl" data-gallery-cat="instalasi" onclick="openLightbox('https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?q=80&w=1200&auto=format&fit=crop', 'Pemasangan Grounding System & Metering')">
+                        <img src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?q=80&w=600&auto=format&fit=crop" alt="Instalasi Pembumian Grounding" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+                        <div class="absolute bottom-4 left-4 right-4 p-2">
+                            <span class="text-[10px] font-extrabold text-electric-amber uppercase tracking-wider">Instalasi Kabel</span>
+                            <h3 class="text-sm font-extrabold text-white mt-0.5">Pembumian Grounding Rod Tembaga</h3>
+                        </div>
+                    </div>
+
+                    <!-- Item 6 -->
+                    <div class="gallery-item group relative h-64 rounded-2xl overflow-hidden cursor-pointer border border-white/10 shadow-xl" data-gallery-cat="penerangan" onclick="openLightbox('https://images.unsplash.com/photo-1513828742140-ccaa28f3eda0?q=80&w=1200&auto=format&fit=crop', 'Pemasangan Sorot Penerangan Gedung Komersial')">
+                        <img src="https://images.unsplash.com/photo-1513828742140-ccaa28f3eda0?q=80&w=600&auto=format&fit=crop" alt="Penerangan Sorot Gedung" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+                        <div class="absolute bottom-4 left-4 right-4 p-2">
+                            <span class="text-[10px] font-extrabold text-electric-amber uppercase tracking-wider">Lampu & PJU</span>
+                            <h3 class="text-sm font-extrabold text-white mt-0.5">Lighting System Gedung Komersial</h3>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 7. TESTIMONI -->
+        <section class="py-20 lg:py-28 bg-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-sky-50 text-sky-700 text-xs font-extrabold uppercase tracking-wider">
+                        Ulasan Pelanggan
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-black text-electric-dark tracking-tight">
+                        Kepuasan Pelanggan & Mitra
+                    </h2>
+                    <p class="text-slate-600 text-base">
+                        Testimoni dari pemilik bisnis, pengelola pabrik, dan pemilik hunian di Sukabumi.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Testimonial 1 -->
+                    <div class="p-8 rounded-2xl bg-slate-50 border border-slate-200 shadow-sm flex flex-col justify-between space-y-6">
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-1 text-amber-400 text-sm">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-slate-700 text-xs italic leading-relaxed">
+                                "Hasil rakitan panel LVMDP dari Ali Electric sangat rapi, sistem kelistrikan pabrik kami berjalan stabil tanpa pernah nge-jepret lagi. Pengerjaan sangat cepat!"
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-4 pt-4 border-t border-slate-200">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="H. Ahmad Subagja" class="w-12 h-12 rounded-full object-cover border-2 border-electric-500">
+                            <div>
+                                <h3 class="font-extrabold text-slate-900 text-sm">H. Ahmad Subagja</h3>
+                                <p class="text-xs text-slate-500">Pemilik Pabrik Tekstil Sukabumi</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="p-8 rounded-2xl bg-slate-50 border border-slate-200 shadow-sm flex flex-col justify-between space-y-6">
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-1 text-amber-400 text-sm">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-slate-700 text-xs italic leading-relaxed">
+                                "Ketika terjadi gangguan korsleting listrik malam hari, tim Ali Electric langsung datang ke lokasi di Cikembar. Penanganannya sigap dan sangat profesional."
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-4 pt-4 border-t border-slate-200">
+                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=200&auto=format&fit=crop" alt="Hj. Nurhayati" class="w-12 h-12 rounded-full object-cover border-2 border-electric-500">
+                            <div>
+                                <h3 class="font-extrabold text-slate-900 text-sm">Hj. Nurhayati</h3>
+                                <p class="text-xs text-slate-500">Pengelola Ruko & Swalayan</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="p-8 rounded-2xl bg-slate-50 border border-slate-200 shadow-sm flex flex-col justify-between space-y-6">
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-1 text-amber-400 text-sm">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-slate-700 text-xs italic leading-relaxed">
+                                "Pemasangan penangkal petir dan penataan ulang wiring 3-phase di pergudangan kami dikerjakan sangat presisi. Harganya sangat rasional dibanding yang lain."
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-4 pt-4 border-t border-slate-200">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop" alt="Budi Gunawan" class="w-12 h-12 rounded-full object-cover border-2 border-electric-500">
+                            <div>
+                                <h3 class="font-extrabold text-slate-900 text-sm">Budi Gunawan, S.T.</h3>
+                                <p class="text-xs text-slate-500">Manager Operasional Logistik</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 8. CALL TO ACTION -->
+        <section class="py-16 lg:py-20 bg-gradient-to-r from-electric-dark via-slate-900 to-electric-dark text-white relative overflow-hidden border-y border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="bg-white/5 backdrop-blur-xl rounded-3xl p-8 lg:p-12 border border-white/10 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8">
+                    
+                    <div class="space-y-4 text-center lg:text-left max-w-2xl">
+                        <span class="text-electric-amber font-extrabold text-xs uppercase tracking-widest">Siap Bekerja Sama Dengan Kami?</span>
+                        <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">
+                            Solusi Kelistrikan Aman & Handal Hanya Dalam Satu Langkah
+                        </h2>
+                        <p class="text-slate-300 text-sm sm:text-base">
+                            Hubungi tim teknisi pakar Ali Electric sekarang untuk konsultasi gratis, penyusunan RAB proyek, atau perbaikan darurat.
+                        </p>
+                    </div>
+
+                    <div class="flex flex-wrap items-center justify-center gap-4 shrink-0">
+                        <a href="https://wa.me/6283898962935?text=Halo%20Ali%20Electric,%20saya%20ingin%20berkonsultasi%20layanan%20listrik" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold px-6 py-4 rounded-xl shadow-lg transition-all flex items-center gap-2.5 text-xs uppercase tracking-wider">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Chat WhatsApp (083898962935)</span>
+                        </a>
+                        <button onclick="openOfferModal()" class="bg-gradient-to-r from-electric-500 to-electric-700 hover:from-electric-600 hover:to-electric-800 text-white font-extrabold px-6 py-4 rounded-xl shadow-solid-glow transition-all text-xs uppercase tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-file-invoice text-xs"></i>
+                            <span>Minta Penawaran RAB</span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="kontak" class="py-20 lg:py-28 bg-slate-50 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    
+                    <!-- Left Contact Info -->
+                    <div class="lg:col-span-5 space-y-8">
+                        <div>
+                            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-electric-50 text-electric-700 text-xs font-extrabold uppercase tracking-wider mb-3">
+                                Kontak Informasi
+                            </div>
+                            <h2 class="text-3xl font-black text-electric-dark tracking-tight">
+                                Hubungi Ali Electric
+                            </h2>
+                            <p class="text-slate-600 text-sm mt-3 leading-relaxed">
+                                Kantor dan bengkel workshop kami berlokasi di Sukamulya, Cikembar. Kami siap melayani wilayah Sukabumi dan sekitarnya.
+                            </p>
+                        </div>
+
+                        <!-- Contact Cards -->
+                        <div class="space-y-5">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-2xl bg-electric-dark text-electric-amber flex items-center justify-center shrink-0 shadow-sm">
+                                    <i class="fa-solid fa-location-dot text-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-extrabold text-slate-900 text-sm">Alamat Lengkap</h3>
+                                    <p id="contact-address-text" class="text-xs text-slate-600 mt-1 leading-relaxed">
+                                        Jln. Perintis Kemerdekaan No.19, Desa Sukamulya, Kec. Cikembar, Kabupaten Sukabumi, Jawa Barat
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-2xl bg-electric-dark text-electric-amber flex items-center justify-center shrink-0 shadow-sm">
+                                    <i class="fa-solid fa-phone-volume text-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-extrabold text-slate-900 text-sm">Telepon / WhatsApp</h3>
+                                    <p id="contact-phone-text" class="text-xs text-slate-600 mt-1">
+                                        083898962935 (+62 838-9896-2935)
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-2xl bg-electric-dark text-electric-amber flex items-center justify-center shrink-0 shadow-sm">
+                                    <i class="fa-solid fa-envelope text-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-extrabold text-slate-900 text-sm">Email Resmi</h3>
+                                    <p id="contact-email-text" class="text-xs text-slate-600 mt-1">
+                                        alielectric.1984@gmail.com
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Form -->
+                    <div class="lg:col-span-7">
+                        <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-kokoh shadow">
+                            <h3 class="text-xl font-extrabold text-slate-900 mb-6">Kirim Pesan / Pertanyaan Direct</h3>
+                            
+                            <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-5">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                    <div>
+                                        <label class="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">Nama Lengkap *</label>
+                                        <input type="text" id="form-name" required placeholder="Contoh: Pak Herman" class="w-full px-4 py-3 text-xs bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-electric-500 focus:bg-white transition-all">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">Email *</label>
+                                        <input type="email" id="form-email" required placeholder="nama@email.com" class="w-full px-4 py-3 text-xs bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-electric-500 focus:bg-white transition-all">
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                    <div>
+                                        <label class="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">Nomor Telepon / WA *</label>
+                                        <input type="tel" id="form-phone" required placeholder="0812345678" class="w-full px-4 py-3 text-xs bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-electric-500 focus:bg-white transition-all">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">Kategori Kebutuhan</label>
+                                        <select id="form-subject" class="w-full px-4 py-3 text-xs bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-electric-500 focus:bg-white transition-all">
+                                            <option value="Instalasi Baru">Instalasi Listrik Baru</option>
+                                            <option value="Perakitan Panel">Perakitan Boks Panel LVMDP/ATS</option>
+                                            <option value="Perbaikan Darurat">Perbaikan Darurat / Korsleting</option>
+                                            <option value="Penangkal Petir">Penangkal Petir & Grounding</option>
+                                            <option value="Pengadaan Material">Pengadaan Material Kabel/MCB</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">Pesan & Detail Lokasi *</label>
+                                    <textarea id="form-message" rows="4" required placeholder="Jelaskan kebutuhan kelistrikan atau masalah yang Anda hadapi..." class="w-full px-4 py-3 text-xs bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-electric-500 focus:bg-white transition-all"></textarea>
+                                </div>
+
+                                <button type="submit" class="w-full bg-electric-dark hover:bg-slate-900 text-white font-extrabold py-4 rounded-xl shadow-md transition-all flex items-center justify-center gap-2 text-xs uppercase tracking-wider">
+                                    <i class="fa-solid fa-paper-plane text-electric-amber"></i>
+                                    <span>Kirim Pesan Sekarang</span>
+                                </button>
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 9. FOOTER -->
+    <footer class="bg-electric-dark text-white pt-16 pb-12 border-t border-slate-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
+                
+                <!-- Footer Brand Column -->
+                <div class="lg:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="logo-wrapper h-10 w-auto max-w-[190px] flex items-center">
+                            <img id="footer-logo" src="https://placehold.co/200x60/080e1e/f59e0b?text=ALI+ELECTRIC" alt="Footer Logo" class="h-full w-auto object-contain">
+                        </div>
+                        <span id="footer-brand-name" class="font-black text-lg tracking-wider text-white">ALI ELECTRIC</span>
+                    </div>
+                    <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
+                        Spesialis kelistrikan terpercaya di Cikembar Sukabumi. Melayani instalasi jaringan, rakitan panel distribusi, perawatan sistem daya, dan pengadaan komponen elektrik SNI.
+                    </p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <a href="https://wa.me/6283898962935" target="_blank" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-electric-500 flex items-center justify-center text-slate-300 hover:text-white transition-all text-sm">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                        <a href="mailto:alielectric.1984@gmail.com" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-electric-500 flex items-center justify-center text-slate-300 hover:text-white transition-all text-sm">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                        <a href="#kontak" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-electric-500 flex items-center justify-center text-slate-300 hover:text-white transition-all text-sm">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Nav Column 1 -->
+                <div>
+                    <h3 class="font-extrabold text-xs text-white uppercase tracking-wider mb-4">Navigasi Halaman</h3>
+                    <ul class="space-y-2.5 text-xs text-slate-400">
+                        <li><a href="#beranda" class="hover:text-white transition-colors">Beranda Utama</a></li>
+                        <li><a href="#tentang" class="hover:text-white transition-colors">Profil Perusahaan</a></li>
+                        <li><a href="#produk" class="hover:text-white transition-colors">Produk & Layanan</a></li>
+                        <li><a href="#keunggulan" class="hover:text-white transition-colors">Keunggulan Utama</a></li>
+                        <li><a href="#galeri" class="hover:text-white transition-colors">Galeri Dokumentasi</a></li>
+                    </ul>
+                </div>
+
+                <!-- Nav Column 2 -->
+                <div>
+                    <h3 class="font-extrabold text-xs text-white uppercase tracking-wider mb-4">Layanan Utama</h3>
+                    <ul class="space-y-2.5 text-xs text-slate-400">
+                        <li><a href="#produk" class="hover:text-white transition-colors">Instalasi Listrik Industri</a></li>
+                        <li><a href="#produk" class="hover:text-white transition-colors">Perakitan Panel LVMDP/ATS</a></li>
+                        <li><a href="#produk" class="hover:text-white transition-colors">Audit & Troubleshooting</a></li>
+                        <li><a href="#produk" class="hover:text-white transition-colors">Penangkal Petir & Grounding</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info Column -->
+                <div>
+                    <h3 class="font-extrabold text-xs text-white uppercase tracking-wider mb-4">Informasi Kontak</h3>
+                    <ul class="space-y-2.5 text-xs text-slate-400">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-phone text-electric-amber"></i> <span>083898962935</span></li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-envelope text-electric-amber"></i> <span>alielectric.1984@gmail.com</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-location-dot text-electric-amber mt-0.5"></i> <span>Desa Sukamulya, Cikembar, Kab. Sukabumi</span></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Copyright Line -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <p>&copy; <span id="current-year">2026</span> <span id="copyright-brand">ALI ELECTRIC</span>. Hak Cipta Dilindungi Undang-Undang.</p>
+                <div class="flex items-center gap-6">
+                    <a href="#beranda" class="hover:text-slate-400">Privasi & Keamanan</a>
+                    <a href="#beranda" class="hover:text-slate-400">Syarat & Ketentuan Service</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Floating Back To Top Button -->
+    <button id="back-to-top" onclick="scrollToTop()" class="fixed bottom-6 right-6 z-40 bg-electric-dark text-white w-12 h-12 rounded-full shadow-2xl flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:bg-slate-900 border border-slate-700" aria-label="Kembali ke atas">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Floating Direct WhatsApp Button -->
+    <a href="https://wa.me/6283898962935?text=Halo%20Ali%20Electric,%20saya%20ingin%20bertanya%20layanan%20listrik" target="_blank" class="fixed bottom-6 left-6 z-40 bg-emerald-500 text-white p-3.5 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-all border-2 border-white" aria-label="WhatsApp Direct Chat">
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- CUSTOM LOGO & BRANDING MODAL -->
+    <div id="logo-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 relative">
+            <button onclick="toggleLogoModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="flex items-center gap-3 mb-4">
+                <div class="p-3 rounded-2xl bg-electric-dark text-electric-amber">
+                    <i class="fa-solid fa-sliders text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-lg font-extrabold text-slate-900">Pengaturan Logo & Identitas Brand</h3>
+                    <p class="text-xs text-slate-500">Unggah logo milik sendiri atau ganti nama brand secara real-time</p>
+                </div>
+            </div>
+
+            <div class="space-y-4 text-xs">
+                
+                <!-- Upload Custom Logo File -->
+                <div>
+                    <label class="block font-extrabold text-slate-700 uppercase mb-2">1. Upload Logo Sendiri (File Gambar)</label>
+                    <input type="file" id="logo-file-input" accept="image/*" onchange="handleLogoUpload(event)" class="w-full text-xs text-slate-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-electric-50 file:text-electric-700 hover:file:bg-electric-100 cursor-pointer">
+                    <p class="text-[11px] text-slate-400 mt-1">Mendukung format PNG transparan, SVG, JPG, WebP.</p>
+                </div>
+
+                <!-- URL Logo Alternative -->
+                <div>
+                    <label class="block font-extrabold text-slate-700 uppercase mb-2">Atau Gunakan Link / URL Gambar Logo</label>
+                    <div class="flex gap-2">
+                        <input type="text" id="logo-url-input" placeholder="https://domain.com/logo.png" class="flex-grow px-3.5 py-2 text-xs border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-electric-500">
+                        <button onclick="applyLogoUrl()" class="bg-electric-dark text-white px-4 py-2 rounded-xl font-bold">Pasang</button>
+                    </div>
+                </div>
+
+                <!-- Brand Name Input -->
+                <div class="pt-2 border-t border-slate-200">
+                    <label class="block font-extrabold text-slate-700 uppercase mb-2">2. Ubah Nama Perusahaan / Toko</label>
+                    <input type="text" id="brand-name-input" placeholder="ALI ELECTRIC" value="ALI ELECTRIC" oninput="updateBrandName(this.value)" class="w-full px-3.5 py-2 text-xs border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-electric-500">
+                </div>
+
+                <!-- Preset Sample Logos -->
+                <div class="pt-2 border-t border-slate-200">
+                    <label class="block font-extrabold text-slate-700 uppercase mb-2">Pilih Contoh Presets Logo</label>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="setLogoPreset('https://placehold.co/200x60/080e1e/f59e0b?text=ALI+ELECTRIC')" class="p-2 border rounded-xl hover:border-electric-500 font-bold text-slate-700 bg-slate-50 text-left">Ali Electric Gold (Default)</button>
+                        <button onclick="setLogoPreset('https://placehold.co/200x60/0284c7/ffffff?text=ALI+ELECTRIC')" class="p-2 border rounded-xl hover:border-electric-500 font-bold text-slate-700 bg-slate-50 text-left">Ali Electric Cyan</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-200 flex justify-end">
+                <button onclick="toggleLogoModal()" class="bg-electric-dark text-white font-extrabold px-6 py-2.5 rounded-xl text-xs uppercase tracking-wider">Simpan & Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRODUCT DETAIL MODAL -->
+    <div id="product-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 relative">
+            <button onclick="closeProductModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <span class="text-xs font-extrabold text-electric-600 uppercase tracking-widest block mb-1">Rincian Layanan Spesialis</span>
+            <h3 id="modal-product-title" class="text-xl font-black text-electric-dark mb-3">Nama Layanan</h3>
+            <p id="modal-product-desc" class="text-xs text-slate-600 leading-relaxed mb-6">Deskripsi lengkap layanan...</p>
+
+            <div class="flex items-center justify-end gap-3 pt-4 border-t border-slate-100">
+                <button onclick="closeProductModal()" class="px-4 py-2.5 text-xs font-bold text-slate-600 hover:bg-slate-100 rounded-xl">Tutup</button>
+                <a id="modal-product-cta" href="https://wa.me/6283898962935?text=Halo%20Ali%20Electric,%20saya%20ingin%20konsultasi%20mengenai%20layanan%20ini" target="_blank" onclick="closeProductModal()" class="bg-electric-dark text-white text-xs font-extrabold px-5 py-2.5 rounded-xl shadow flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-electric-amber"></i>
+                    <span>Tanyakan via WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- LIGHTBOX GALLERY MODAL -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md hidden flex-col items-center justify-center p-4" onclick="closeLightbox()">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white hover:text-electric-amber text-2xl font-bold">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="max-w-4xl max-h-[80vh] overflow-hidden rounded-2xl shadow-2xl border border-white/20" onclick="event.stopPropagation()">
+            <img id="lightbox-img" src="" alt="Gallery Large View" class="w-full h-full object-contain">
+        </div>
+        <p id="lightbox-caption" class="text-white text-xs font-bold mt-4 text-center tracking-wide"></p>
+    </div>
+
+    <!-- REQUEST OFFER MODAL -->
+    <div id="offer-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-200 relative">
+            <button onclick="closeOfferModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="text-xl font-black text-electric-dark mb-1">Minta Penawaran RAB Resmi</h3>
+            <p class="text-xs text-slate-500 mb-4">Isi rincian Anda untuk menerima estimasi penawaran biaya resmi.</p>
+            
+            <form onsubmit="handleOfferSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Nama / Perusahaan</label>
+                    <input type="text" required placeholder="PT / Bpk. Name" class="w-full px-3.5 py-2 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-electric-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Nomor WhatsApp</label>
+                    <input type="tel" required placeholder="083898962935" class="w-full px-3.5 py-2 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-electric-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Deskripsi Ringkas Proyek</label>
+                    <textarea rows="3" required placeholder="Contoh: Pemasangan grounding rod & panel LVMDP 3-phase..." class="w-full px-3.5 py-2 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-electric-500"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-electric-dark text-white font-extrabold py-3 rounded-xl text-xs uppercase tracking-wider shadow">Kirim Permintaan RAB</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toast" class="fixed top-24 right-5 z-50 bg-electric-dark text-white px-5 py-4 rounded-2xl shadow-2xl border border-electric-amber/40 flex items-center gap-3 transform translate-x-full transition-transform duration-300">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-xl"></i>
+        <div>
+            <h4 id="toast-title" class="font-extrabold text-xs">Pesan Berhasil Terkirim!</h4>
+            <p id="toast-message" class="text-[11px] text-slate-300 mt-0.5">Tim Ali Electric akan segera menghubungi Anda.</p>
+        </div>
+    </div>
+
+    <script>
+        // -------------------------------------------------------------
+        // MOBILE MENU NAVIGATION
+        // -------------------------------------------------------------
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.className = 'fa-solid fa-bars text-xl';
+            } else {
+                icon.className = 'fa-solid fa-xmark text-xl';
+            }
+        }
+
+        // -------------------------------------------------------------
+        // STICKY NAVBAR & BACK TO TOP SCROLL
+        // -------------------------------------------------------------
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            const backToTop = document.getElementById('back-to-top');
+
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md', 'py-0.5');
+            } else {
+                navbar.classList.remove('shadow-md', 'py-0.5');
+            }
+
+            if (window.scrollY > 400) {
+                backToTop.classList.remove('opacity-0', 'pointer-events-none');
+                backToTop.classList.add('opacity-100');
+            } else {
+                backToTop.classList.add('opacity-0', 'pointer-events-none');
+                backToTop.classList.remove('opacity-100');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // -------------------------------------------------------------
+        // BRAND & LOGO CUSTOMIZER LOGIC
+        // -------------------------------------------------------------
+        function toggleLogoModal() {
+            const modal = document.getElementById('logo-modal');
+            modal.classList.toggle('hidden');
+            modal.classList.toggle('flex');
+        }
+
+        function handleLogoUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const result = e.target.result;
+                    applyLogoToSite(result);
+                    showToast("Logo Diperbarui", "Logo milik sendiri berhasil terpasang di seluruh website.");
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function applyLogoUrl() {
+            const url = document.getElementById('logo-url-input').value.trim();
+            if (url) {
+                applyLogoToSite(url);
+                showToast("Logo Diperbarui", "Logo dari URL berhasil dipasang.");
+            }
+        }
+
+        function setLogoPreset(url) {
+            applyLogoToSite(url);
+            showToast("Preset Terpasang", "Contoh preset logo telah diterapkan.");
+        }
+
+        function applyLogoToSite(src) {
+            document.getElementById('site-logo').src = src;
+            document.getElementById('footer-logo').src = src;
+        }
+
+        function updateBrandName(name) {
+            const cleanName = name.trim() || "ALI ELECTRIC";
+            document.getElementById('brand-name-text').innerText = cleanName;
+            document.getElementById('footer-brand-name').innerText = cleanName;
+            document.getElementById('copyright-brand').innerText = cleanName;
+        }
+
+        // -------------------------------------------------------------
+        // PRODUCT SEARCH & CATEGORY FILTER
+        // -------------------------------------------------------------
+        function filterProducts(category) {
+            const cards = document.querySelectorAll('.product-card');
+            const tabs = document.querySelectorAll('.filter-btn');
+
+            tabs.forEach(tab => {
+                if (tab.dataset.category === category) {
+                    tab.className = "filter-btn active px-4 py-2.5 rounded-xl text-xs font-extrabold transition-all whitespace-nowrap bg-electric-dark text-white shadow-sm";
+                } else {
+                    tab.className = "filter-btn px-4 py-2.5 rounded-xl text-xs font-extrabold transition-all whitespace-nowrap bg-slate-100 text-slate-600 hover:bg-slate-200";
+                }
+            });
+
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        function searchProducts() {
+            const query = document.getElementById('product-search').value.toLowerCase();
+            const cards = document.querySelectorAll('.product-card');
+
+            cards.forEach(card => {
+                const title = card.dataset.title.toLowerCase();
+                if (title.includes(query)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // -------------------------------------------------------------
+        // GALLERY FILTER & LIGHTBOX
+        // -------------------------------------------------------------
+        function filterGallery(category) {
+            const items = document.querySelectorAll('.gallery-item');
+            const btns = document.querySelectorAll('.gallery-filter-btn');
+
+            btns.forEach(btn => {
+                if (btn.dataset.galleryCat === category) {
+                    btn.className = "gallery-filter-btn active px-5 py-2.5 rounded-xl text-xs font-extrabold transition-all bg-electric-500 text-white";
+                } else {
+                    btn.className = "gallery-filter-btn px-5 py-2.5 rounded-xl text-xs font-extrabold transition-all bg-white/10 text-slate-300 hover:bg-white/20";
+                }
+            });
+
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.galleryCat === category) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        }
+
+        function openLightbox(imgSrc, caption) {
+            const modal = document.getElementById('lightbox-modal');
+            document.getElementById('lightbox-img').src = imgSrc;
+            document.getElementById('lightbox-caption').innerText = caption;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightbox-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // -------------------------------------------------------------
+        // PRODUCT QUICK VIEW MODAL
+        // -------------------------------------------------------------
+        function openProductModal(title, description) {
+            document.getElementById('modal-product-title').innerText = title;
+            document.getElementById('modal-product-desc').innerText = description;
+            
+            // Set dynamic WA message
+            const waBtn = document.getElementById('modal-product-cta');
+            waBtn.href = `https://wa.me/6283898962935?text=Halo%20Ali%20Electric,%20saya%20tertarik%20dengan%20layanan%20${encodeURIComponent(title)}`;
+
+            const modal = document.getElementById('product-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeProductModal() {
+            const modal = document.getElementById('product-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // -------------------------------------------------------------
+        // OFFER MODAL
+        // -------------------------------------------------------------
+        function openOfferModal() {
+            const modal = document.getElementById('offer-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeOfferModal() {
+            const modal = document.getElementById('offer-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function handleOfferSubmit(e) {
+            e.preventDefault();
+            closeOfferModal();
+            showToast("Permintaan RAB Terkirim", "Tim teknis Ali Electric akan segera meninjau dan merespons via WA.");
+        }
+
+        // -------------------------------------------------------------
+        // CONTACT FORM VALIDATION & TOAST
+        // -------------------------------------------------------------
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('form-name').value;
+            
+            document.getElementById('contact-form').reset();
+            showToast("Pesan Berhasil Terkirim!", `Terima kasih Sdr/i ${name}, tim Ali Electric akan menghubungi Anda.`);
+        }
+
+        function showToast(title, message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-title').innerText = title;
+            document.getElementById('toast-message').innerText = message;
+
+            toast.classList.remove('translate-x-full');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-x-full');
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
